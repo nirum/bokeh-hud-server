@@ -26,8 +26,8 @@ def publish(func):
     def wrapper(*args, **kwargs):
 
         name = kwargs.pop('name', strftime('%I:%M:%S %h %d %Y'))
-        width = kwargs.pop('w', 800)
-        height = kwargs.pop('h', 500)
+        width = kwargs.pop('w', 600)
+        height = kwargs.pop('h', 600)
 
         output_server(name)
         p = figure(plot_width=width, plot_height=height)
@@ -45,6 +45,11 @@ def line(p, x, y=None, **kwargs):
         x = np.arange(y.size)
 
     p.line(x, y, **kwargs)
+
+
+@publish
+def image(p, img, x, y, dw, dh, **kwargs):
+    p.image(img, x, y, dw, dh, **kwargs)
 
 
 def stream(name, width=800, height=500):
