@@ -3,6 +3,8 @@ Bokeh HUD server
 
 """
 
+__version__ = '0.0.1'
+
 from time import strftime
 from functools import wraps
 from bokeh.io import output_server
